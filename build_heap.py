@@ -42,12 +42,15 @@ def main():
         if "a" in filename:
             print("File names with letter a are not allowed")
             return
-
+    try:
         with open("test/" + filename, 'r') as file:
                     n = int(file.readline())
                     data = list(map(int, file.readline().split()))
                     assert len(data) == n
                     swaps = build_heap(data)
+    except FileNotFoundError:
+                print("Error")
+                return
     else:
         print("Error")
         exit()
