@@ -25,14 +25,7 @@ def sift_down(data, i, swaps):
         sift_down(data, index, swaps)
 
 def main():
-   
-    choice = input()
-    if "F" in choice:
-        filename = input()
-        if "a" in filename:
-            print("File names with letter a are not allowed")
-            return
-           choice = input()
+   choice = input()
     if "F" in choice:
         filename = input()
         if "a" in filename:
