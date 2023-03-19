@@ -4,6 +4,7 @@ def build_heap(data):
     swaps = []
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
+    n = len(data)
     for i in range((n - 1) // 2, -1, -1):
         sift_down(data, i, swaps)
     return swaps
@@ -26,6 +27,9 @@ def sift_down(data, i, swaps):
 
 def main():
     
+    # TODO : add input and corresponding checks
+    # add another input for I or F 
+    # first two tests are from keyboard, third test is from a file
     choice = input("Choose the input method")
     if "F" in choice:
         filename = input()
@@ -43,12 +47,10 @@ def main():
         assert len(data) == n
         swaps = build_heap(data)
 
-
     # output all swaps
     print(len(swaps))
     for i, j in swaps:
         print(i, j)
-
 
 if __name__ == "__main__":
     main()
