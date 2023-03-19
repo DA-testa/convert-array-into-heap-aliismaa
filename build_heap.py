@@ -26,7 +26,7 @@ def sift_down(data, i, swaps):
 
 def main():
    
-    choice = input("Choose the input method")
+    choice = input()
     if "F" in choice:
         filename = input()
         if "a" in filename:
