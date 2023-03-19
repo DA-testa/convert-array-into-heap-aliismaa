@@ -32,14 +32,20 @@ def main():
         if "a" in filename:
             print("File names with letter a are not allowed")
             return
-        try:
-        with open("test/" + filename, 'r') as file:
+           choice = input()
+    if "F" in choice:
+        filename = input()
+        if "a" in filename:
+            print("File names with letter a are not allowed")
+            return
+            try:
+                with open("test/" + filename, 'r') as file:
                     n = int(file.readline())
                     data = list(map(int, file.readline().split()))
                     assert len(data) == n
                     swaps = build_heap(data)
-        except FileNotFoundError:
-            print("Error")
+            except FileNotFoundError:
+                print("Error")
             return
     elif "I" in choice:
         n = int(input())
