@@ -5,7 +5,7 @@ def build_heap(data):
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
     n = len(data)
-    for i in range((n - 1) // 2, -1, -1):
+    for i in range(n// 2, -1, -1):
         sift_down(data, i, swaps)
     return swaps
 
@@ -15,9 +15,9 @@ def sift_down(data, i, swaps):
     left = 2 * i + 1
     right = 2 * i + 2
 
-    if left <= n - 1 and data[left] < data[index]:
+    if left < n  and data[left] < data[index]:
         index = left
-    if right <= n - 1 and data[right] < data[index]:
+    if right < n  and data[right] < data[index]:
         index = right
 
     if i != index:
@@ -35,28 +35,27 @@ def main():
     if "I" in choice:
         n = int(input())
         data = list(map(int, input().split()))
-        assert len(data) == n
-        swaps = build_heap(data)
+        
     elif "F" in choice:
         filename = input()
         if "a" in filename:
             print("File names with letter a are not allowed")
             return
-    try:
-        with open("tests/" + filename, 'r') as file:
-                    n = int(file.readline())
-                    data = list(map(int, file.readline().split()))
-                    assert len(data) == n
-                    swaps = build_heap(data)
-    except FileNotFoundError:
-                print("Error")
-                return
-    else:
-        print("Error")
-        exit()
- 
+        try:
+            with open('tests/' + filename, 'r') as file:
+                n = int(file.readline())
+                data = list(map(int, file.readline().split()))
+                
+        except FileNotFoundError:
+            print("Error")
+            return
+    
+        
+    assert len(data) == n
+    swaps = build_heap(data)
 
-    # output all swaps
+    assert len(swaps) <= n * 4
+   
     print(len(swaps))
     for i, j in swaps:
         print(i, j)
