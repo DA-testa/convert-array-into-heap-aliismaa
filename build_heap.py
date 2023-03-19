@@ -2,10 +2,9 @@
 
 def build_heap(data):
     swaps = []
-    # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
     n = len(data)
-    for i in range((n - 1) // 2, -1, -1):
+    for i in range(n // 2, -1, -1):
         sift_down(data, i, swaps)
     return swaps
 
@@ -15,9 +14,9 @@ def sift_down(data, i, swaps):
     left = 2 * i + 1
     right = 2 * i + 2
 
-    if left <= n - 1 and data[left] < data[index]:
+    if left < n and data[left] < data[index]:
         index = left
-    if right <= n - 1 and data[right] < data[index]:
+    if right < n and data[right] < data[index]:
         index = right
 
     if i != index:
@@ -26,10 +25,7 @@ def sift_down(data, i, swaps):
         sift_down(data, index, swaps)
 
 def main():
-    
-    # TODO : add input and corresponding checks
-    # add another input for I or F 
-    # first two tests are from keyboard, third test is from a file
+   
     choice = input("Choose the input method")
     if "F" in choice:
         filename = input()
