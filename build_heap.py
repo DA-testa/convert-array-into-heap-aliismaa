@@ -43,7 +43,7 @@ def main():
             print("File names with letter a are not allowed")
             return
     try:
-        with open("test/" + filename, 'r') as file:
+        with open("tests/" + filename, 'r') as file:
                     n = int(file.readline())
                     data = list(map(int, file.readline().split()))
                     assert len(data) == n
